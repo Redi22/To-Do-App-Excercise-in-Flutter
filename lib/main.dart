@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'task.dart';
+import 'package:to_do/Models/task.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyFirstPage(),
     );
-  }
+  } 
 }
 
 class MyFirstPage extends StatefulWidget {
@@ -31,9 +31,12 @@ class _MyFirstPageState extends State<MyFirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Color(0xFF083663),
+      
       body: SafeArea(
+        
               child: CustomScrollView(
+                
                 
           slivers: <Widget>[
             SliverAppBar(
@@ -42,10 +45,10 @@ class _MyFirstPageState extends State<MyFirstPage> {
               floating: false,
               snap: false,
               expandedHeight: 300.0,
-              backgroundColor: Colors.blueGrey,
+              backgroundColor: Color(0xFF083663),
               flexibleSpace: FlexibleSpaceBar(
                 title: Text("Reminder"),
-                
+                background: Image.asset("images/download.jpeg"),
                 
               ),
               actions: <Widget>[
@@ -58,23 +61,25 @@ class _MyFirstPageState extends State<MyFirstPage> {
             SliverFillRemaining(
               child: Column(
                 children: <Widget>[
-                  Container(
-                    width: 200.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0)                    ),
-                    child: RaisedButton(
-                      onPressed: (){},
-                      color: Colors.teal,
-                      child: Row(children: <Widget>[
-                        
-                         Icon(Icons.add),
-                         Text("write a reminder" )
-                        
-                      ],)
-                      ) ),
-                  Text(
-                    "some other reminders"
-                  )
+                  Material(
+                    
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Colors.tealAccent,
+                    child: Container(
+                      width: 200.0,
+                      height: 40.0,
+                      child: MaterialButton(
+                        onPressed: (){},
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.add),
+                            Text("Write Reminder"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  
                 ],
               )
             )

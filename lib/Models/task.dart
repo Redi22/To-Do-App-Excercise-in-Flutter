@@ -2,9 +2,8 @@
 
 class Task{
   String title;
-  String Id;
-  List<Striing> checklist;
-  List<image> image;
+  String id;
+  List<String> checklist;
   bool alert;
   
 
