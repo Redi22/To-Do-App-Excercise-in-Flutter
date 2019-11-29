@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do/Models/task.dart';
-
+import 'pages/Form.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
       ),
       home: MyFirstPage(),
     );
-  } 
+
+  }
+ 
 }
 
 class MyFirstPage extends StatefulWidget {
@@ -32,19 +34,8 @@ class _MyFirstPageState extends State<MyFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF083663),
-      
-      body: SafeArea(
-        
-              child: CustomScrollView(
-                
-                
-          slivers: <Widget>[
-            SliverAppBar(
+      appBar: AppBar(
               elevation: 0.0,
-              pinned: true,
-              floating: false,
-              snap: false,
-              expandedHeight: 300.0,
               backgroundColor: Color(0xFF083663),
               flexibleSpace: FlexibleSpaceBar(
                 title: Text("Reminder"),
@@ -56,11 +47,33 @@ class _MyFirstPageState extends State<MyFirstPage> {
                     IconButton(icon: Icon(Icons.search,), onPressed: () {},),
                     IconButton(icon: Icon(Icons.menu,), onPressed: () {},)
               ],
-            ),
-          
-            SliverFillRemaining(
-              child: Column(
+            ), 
+      body: Container(
+              child:
+            Column(
                 children: <Widget>[
+                  SizedBox(
+                    height: 300.0,
+                    child: Carousel(
+                    boxFit: BoxFit.cover,
+                    images:[
+                      AssetImage("images/ca.jpg"),
+                      AssetImage("images/ca1.jpg"),
+                      AssetImage("images/ca2.jpg"),
+                      AssetImage("images/ca3.jpg"),
+                      AssetImage("images/ca4.jpg"),
+                      AssetImage("images/ca5.jpg"),
+                      AssetImage("images/ca6.jpg"),
+                      AssetImage("images/ca7.jpg"),
+                      AssetImage("images/ca8.jpg"),
+                      AssetImage("images/ca9.jpg"),
+                    ] ,
+                    showIndicator: false,
+                  )
+                  ),
+                   SizedBox(
+                     height: 20.0,
+                   ),
                   Material(
                     
                     borderRadius: BorderRadius.circular(20.0),
@@ -69,7 +82,9 @@ class _MyFirstPageState extends State<MyFirstPage> {
                       width: 200.0,
                       height: 40.0,
                       child: MaterialButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (_) => FormAdd()));
+                        },
                         child: Row(
                           children: <Widget>[
                             Icon(Icons.add),
@@ -82,17 +97,16 @@ class _MyFirstPageState extends State<MyFirstPage> {
                   
                 ],
               )
-            )
+            
 
 
-          ],
+         
           
         ),
-      ),
+      
       
     );
-  }
-}
+  
 
-
-
+  
+}}
